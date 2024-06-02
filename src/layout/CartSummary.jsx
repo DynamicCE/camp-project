@@ -4,11 +4,11 @@ export default function CartSummary() {
   return (
     <div>
       <Dropdown item text="Language">
-        <DropdownMenu>
-          <DropdownItem>English</DropdownItem>
-          <DropdownItem>Russian</DropdownItem>
-          <DropdownItem>Spanish</DropdownItem>
-        </DropdownMenu>
+        <Dropdown.Menu>
+          <Dropdown.Item>English</Dropdown.Item>
+          <Dropdown.Item>Russian</Dropdown.Item>
+          <Dropdown.Item>Spanish</Dropdown.Item>
+        </Dropdown.Menu>
       </Dropdown>
     </div>
   );

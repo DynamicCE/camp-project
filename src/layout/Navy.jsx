@@ -15,16 +15,15 @@ export default function Navy() {
     <div>
       <Menu inverted fixed="top">
         <Container>
-          <MenuItem name="home" />
-          <MenuItem name="messages" />
+          <Menu.Item name="home" />
+          <Menu.Item name="messages" />
 
-          <MenuMenu position="right">
+          <Menu.Menu position="right">
             <CartSummary />
-
-            <MenuItem>
+            <Menu.Item>
               <Button primary>Sign Up</Button>
-            </MenuItem>
-          </MenuMenu>
+            </Menu.Item>
+          </Menu.Menu>
         </Container>
       </Menu>
     </div>

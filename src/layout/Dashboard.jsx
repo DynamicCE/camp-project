@@ -11,10 +11,10 @@ export default function Dashboard() {
     <div>
       <Grid>
         <Grid.Row>
-          <Grid.Column>
+          <Grid.Column width={4}>
             <Categories />
           </Grid.Column>
-          <Grid.Column>
+          <Grid.Column width={12}>
             <ProductList />
           </Grid.Column>
         </Grid.Row>

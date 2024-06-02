@@ -20,7 +20,7 @@ import {
 export default function ProductList() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    let productService = new productService();
+    let productService = new ProductService();
     productService
       .getProducts()
       .then((result) => setProducts(result.data.data));
@@ -28,46 +28,46 @@ export default function ProductList() {
   return (
     <div>
       <Table celled>
-        <TableHeader>
-          <TableRow>
-            <TableHeaderCell>Ürün Adı</TableHeaderCell>
-            <TableHeaderCell>Birim Fiyatı</TableHeaderCell>
-            <TableHeaderCell>Stok Adedi</TableHeaderCell>
-            <TableHeaderCell>Açıklama</TableHeaderCell>
-            <TableHeaderCell>Kategori</TableHeaderCell>
-          </TableRow>
-        </TableHeader>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Ürün Adı</Table.HeaderCell>
+            <Table.HeaderCell>Birim Fiyatı</Table.HeaderCell>
+            <Table.HeaderCell>Stok Adedi</Table.HeaderCell>
+            <Table.HeaderCell>Açıklama</Table.HeaderCell>
+            <Table.HeaderCell>Kategori</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
 
-        <TableBody>
+        <Table.Body>
           {products.map((product) => (
-            <TableRow key={product.id}>
-              <TableCell>{product.productName}</TableCell>
-              <TableCell>{product.unitPrice}</TableCell>
-              <TableCell>{product.unitsInStock}</TableCell>
-              <TableCell>{product.quantityPerUnit}</TableCell>
-              <TableCell>{product.category.categoryName}</TableCell>
-            </TableRow>
+            <Table.Row key={product.id}>
+              <Table.Cell>{product.productName}</Table.Cell>
+              <Table.Cell>{product.unitPrice}</Table.Cell>
+              <Table.Cell>{product.unitsInStock}</Table.Cell>
+              <Table.Cell>{product.quantityPerUnit}</Table.Cell>
+              <Table.Cell>{product.category.categoryName}</Table.Cell>
+            </Table.Row>
           ))}
-        </TableBody>
+        </Table.Body>
 
-        <TableFooter>
-          <TableRow>
-            <TableHeaderCell colSpan="3">
+        <Table.Footer>
+          <Table.Row>
+            <Table.HeaderCell colSpan="3">
               <Menu floated="right" pagination>
-                <MenuItem as="a" icon>
+                <Menu.Item as="a" icon>
                   <Icon name="chevron left" />
-                </MenuItem>
-                <MenuItem as="a">1</MenuItem>
-                <MenuItem as="a">2</MenuItem>
-                <MenuItem as="a">3</MenuItem>
-                <MenuItem as="a">4</MenuItem>
-                <MenuItem as="a" icon>
+                </Menu.Item>
+                <Menu.Item as="a">1</Menu.Item>
+                <Menu.Item as="a">2</Menu.Item>
+                <Menu.Item as="a">3</Menu.Item>
+                <Menu.Item as="a">4</Menu.Item>
+                <Menu.Item as="a" icon>
                   <Icon name="chevron right" />
-                </MenuItem>
+                </Menu.Item>
               </Menu>
-            </TableHeaderCell>
-          </TableRow>
-        </TableFooter>
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Footer>
       </Table>
     </div>
   );
