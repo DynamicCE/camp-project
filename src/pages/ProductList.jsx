@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useSyncExternalStore } from "react";
+import { useState, useEffect } from "react";
+import ProductService from "../services/ProductService";
 import {
   GridRow,
   GridColumn,
@@ -16,35 +18,36 @@ import {
   Table,
 } from "semantic-ui-react";
 export default function ProductList() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    let productService = new productService();
+    productService
+      .getProducts()
+      .then((result) => setProducts(result.data.data));
+  });
   return (
     <div>
       <Table celled>
         <TableHeader>
           <TableRow>
-            <TableHeaderCell>Header</TableHeaderCell>
-            <TableHeaderCell>Header</TableHeaderCell>
-            <TableHeaderCell>Header</TableHeaderCell>
+            <TableHeaderCell>Ürün Adı</TableHeaderCell>
+            <TableHeaderCell>Birim Fiyatı</TableHeaderCell>
+            <TableHeaderCell>Stok Adedi</TableHeaderCell>
+            <TableHeaderCell>Açıklama</TableHeaderCell>
+            <TableHeaderCell>Kategori</TableHeaderCell>
           </TableRow>
         </TableHeader>
 
         <TableBody>
-          <TableRow>
-            <TableCell>
-              <Label ribbon>First</Label>
-            </TableCell>
-            <TableCell>Cell</TableCell>
-            <TableCell>Cell</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Cell</TableCell>
-            <TableCell>Cell</TableCell>
-            <TableCell>Cell</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Cell</TableCell>
-            <TableCell>Cell</TableCell>
-            <TableCell>Cell</TableCell>
-          </TableRow>
+          {products.map((product) => (
+            <TableRow key={product.id}>
+              <TableCell>{product.productName}</TableCell>
+              <TableCell>{product.unitPrice}</TableCell>
+              <TableCell>{product.unitsInStock}</TableCell>
+              <TableCell>{product.quantityPerUnit}</TableCell>
+              <TableCell>{product.category.categoryName}</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
 
         <TableFooter>
