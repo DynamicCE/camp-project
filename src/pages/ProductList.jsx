@@ -24,7 +24,7 @@ export default function ProductList() {
     productService
       .getProducts()
       .then((result) => setProducts(result.data.data));
-  });
+  }, []);
   return (
     <div>
       <Table celled>
