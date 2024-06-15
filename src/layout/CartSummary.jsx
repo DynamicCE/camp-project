@@ -6,8 +6,8 @@ export default function CartSummary() {
       <Dropdown item text="Language">
         <Dropdown.Menu>
           <Dropdown.Item>English</Dropdown.Item>
-          <Dropdown.Item>Russian</Dropdown.Item>
-          <Dropdown.Item>Spanish</Dropdown.Item>
+          <Dropdown.Item>Türkçe</Dropdown.Item>
+          <Dropdown.Item>한국인</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </div>

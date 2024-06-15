@@ -1,15 +1,9 @@
 import React from "react";
 import CartSummary from "./CartSummary";
-import {
-  DropdownMenu,
-  DropdownItem,
-  MenuMenu,
-  MenuItem,
-  Button,
-  Dropdown,
-  Menu,
-} from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 import { Container } from "semantic-ui-react";
+import SignedOut from "./SignedOut";
+import SignedIn from "./SignedIn";
 export default function Navy() {
   return (
     <div>
@@ -20,9 +14,8 @@ export default function Navy() {
 
           <Menu.Menu position="right">
             <CartSummary />
-            <Menu.Item>
-              <Button primary>Sign Up</Button>
-            </Menu.Item>
+            <SignedOut />
+            <SignedIn />
           </Menu.Menu>
         </Container>
       </Menu>
